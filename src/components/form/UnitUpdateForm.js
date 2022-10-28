@@ -67,8 +67,16 @@ function UnitCreateForm({ id, setUnitId }) {
         }
         console.log(newUnit);
         try {
-            await UnitDataService.addUnits(newUnit);
-            setMessage({ error: false, msg: "New Unit added successfully!" });
+            if (state.state !== undefined && state.state !== "") { 
+            await UnitDataService.updateUnit(state.state, newUnit);
+            setUnitId("");
+            setMessage({ error: false, msg: "Update successfully!" });
+            }
+            else{
+                await UnitDataService.addUnits(newUnit);
+                setMessage({ error: false, msg: "New Unit added successfully!" });
+
+            }
         } catch (err) {
             setMessage({ error: true, msg: err.message });
         }
@@ -87,7 +95,6 @@ function UnitCreateForm({ id, setUnitId }) {
         setMessage("");
         try {
             const docSnap = await UnitDataService.getUnit(state.state);
-            console.log("fetched data" + docSnap.data().unitNo);
             setModelNo(docSnap.data().modelNo);
             setPoNo(docSnap.data().poNo);
             setSerialNo(docSnap.data().serialNo);
@@ -97,7 +104,7 @@ function UnitCreateForm({ id, setUnitId }) {
             setimgSrc(docSnap.data().imgsrc)
             //imgsrc(docSnap.data().imgsrc)
         } catch (err) {
-            console.log(err);
+            setMessage({ error: true, msg: err.message });
         }
     }
     useEffect(() => {
@@ -105,7 +112,7 @@ function UnitCreateForm({ id, setUnitId }) {
         if (state.state !== undefined && state.state !== "") {
             editHandler();
         }
-    }, [id]);
+    }, [state.state]);
     return (
         <>
             {message?.msg && (

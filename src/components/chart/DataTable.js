@@ -38,7 +38,7 @@ function Home( {getUnitId} ) {
               <tr key={doc.id}>
                 <td>{index + 1}</td>
                 <td>{doc.unitNo}</td>
-                <td>Otto</td>
+                <td>{doc.serialNo}</td>
                 <td>
                   <Button
                     variant='secondary'
