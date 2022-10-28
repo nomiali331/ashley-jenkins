@@ -14,10 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.2",
     "chart.js": "^3.9.1",
-<<<<<<< HEAD
     "firebase": "^9.12.1",
-=======
->>>>>>> e7f0639e32b6364bbadef8c20e718b5d17a2198d
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-circular-progressbar": "^2.1.0",

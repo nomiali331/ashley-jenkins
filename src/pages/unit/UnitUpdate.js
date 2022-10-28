@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import Navigation from '../../components/navbar/Navigation'
 import Sidebar from '../../components/sidebar/Sidebar'
+import UnitUpdateForm from '../../components/form/UnitUpdateForm';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../App.css';
-import DataTable from "../../components/chart/DataTable";
 
-function Home() {
+function UnitCreate() {
     const [unitId, setUnitId] = useState("");
-    const getUnitIdHandler =(id) => {
-        console.log("the id of the click unit is:", id);
-        setUnitId(id);
-    }
     return (
         <>
             <Row>
@@ -20,16 +16,21 @@ function Home() {
                 </Col>
                 <Col>
                     <Navigation />
+                    <div class="greet-text">
+                        <h2>Update Unit</h2>
+                        <p>Update Unit</p>
+                    </div>
                     <Row>
                         <Col>
-                            <DataTable getUnitId={getUnitIdHandler}/>
-                
+                            <div className='charts '>
+                                <UnitUpdateForm id={ unitId } setUnitId={setUnitId}/>
+                            </div>
                         </Col>
+                    </Row>
+                </Col>
             </Row>
-        </Col>
-            </Row >
         </>
     );
 }
 
-export default Home
+export default UnitCreate

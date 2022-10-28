@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputLabel from '@mui/material/InputLabel';
@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import { async } from '@firebase/util';
 import UnitDataService from "../../services/unit.services"
 
-function UnitCreateForm() {
+function UnitCreateForm({id, setUnitId}) {
 
   const [modelNo, setModelNo] = useState("");
   const [serialNo, setSerialNo] = useState("");
@@ -62,6 +62,7 @@ function UnitCreateForm() {
       unitNo,
       colorUnit,
       appliance,
+      imgsrc,
     }
     console.log(newUnit);
     try {
@@ -70,12 +71,15 @@ function UnitCreateForm() {
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
-    modelNo("");
-    poNo("");
-    serialNo("");
-    unitNo("");
-    colorUnit("");
-    appliance("");
+    setModelNo("");
+    setPoNo("")
+    setSerialNo("")
+    setApplianceType("")
+    setUnitColor("")
+    setAge("")
+    setimgSrc("")
+    imgsrc("")
+    
   };
   return (
     <>

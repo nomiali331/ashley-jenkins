@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navigation from '../../components/navbar/Navigation'
 import Sidebar from '../../components/sidebar/Sidebar'
 import UnitCreateForm from '../../components/form/UnitCreateForm';
@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import '../../App.css';
 
 function UnitCreate() {
+    const [unitId, setUnitId] = useState("");
     return (
         <>
             <Row>
@@ -22,7 +23,7 @@ function UnitCreate() {
                     <Row>
                         <Col>
                             <div className='charts '>
-                                <UnitCreateForm />
+                                <UnitCreateForm id={ unitId } setUnitId={setUnitId}/>
                             </div>
                         </Col>
                     </Row>
