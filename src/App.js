@@ -6,6 +6,7 @@ import UnitSearch from './components/UnitSearch'
 import UnitsList from './components/UnitsList'
 import UnitCreate from './pages/unit/UnitCreate'
 import UnitUpdate from './pages/unit/UnitUpdate'
+import Login from './pages/login/Login'
 
 import List from './pages/list/List'
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route component={List} path="/list" ></Route>
           <Route component={UnitCreate} path="/add" ></Route>
           <Route component={UnitUpdate} path="/update" ></Route>
+          <Route component={Login} path="/login" ></Route>
           <Route component={Home} path="/" ></Route>
         </Switch>        
       </Router>
