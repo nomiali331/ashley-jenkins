@@ -10,14 +10,14 @@ function UnitCreate() {
     const [unitId, setUnitId] = useState("");
     return (
         <>
-            <Row>
+            <Row className='full-height'>
                 <Col md="auto" className='side-wrp'>
                     <Sidebar />
                 </Col>
-                <Col>
+                <Col  className='white-bg'>
                     <Navigation />
-                    <div class="greet-text">
-                        <h2>Add New Unit</h2>
+                    <div className="greet-text">
+                        <h2>Add New Appliance To unit</h2>
                         <p>Add New Unit</p>
                     </div>
                     <Row>

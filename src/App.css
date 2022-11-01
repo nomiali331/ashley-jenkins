@@ -301,3 +301,13 @@ label.form-check-label {
   margin-top:px;
   display:inline-block;
 }
+.full-height.row {
+  background:#1e85f1;
+}
+
+.white-bg.col {
+  background:#fff;
+}
+.side-wrp{
+  height: 100vh;
+}

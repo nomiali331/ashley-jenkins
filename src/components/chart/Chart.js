@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { Link } from 'react-router-dom';
 const percentage = 60;
 
 class Chart extends Component {
@@ -17,7 +18,7 @@ class Chart extends Component {
                     <CircularProgressbar value={percentage} text={`${3400}`} />;
                 </div>
                 <div className='text-center'>
-                <a href="#">Add Units</a>
+                <Link to="/add">Add Units</Link> 
                 </div>
                 <Row className='text-center'>
                     <Col>

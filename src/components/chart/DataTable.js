@@ -26,10 +26,10 @@ function Home( {getUnitId} ) {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>S.No</th>
+            <th>Unit No</th>
+            <th>Serial No</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

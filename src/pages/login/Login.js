@@ -15,7 +15,7 @@ function BasicExample() {
     const [error, setError] = useState("");
     const { logIn } = useUserAuth();
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         try {
             await logIn(email, password);
             history.push("/home");
@@ -32,9 +32,9 @@ function BasicExample() {
                     <div className='login-form  '>
                         <img src={logo} alt="Logo" />
                         <p>Welcome back! Please login to your account.</p>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             {error && <Alert variant="danger">{error}</Alert>}
-                            <Form.Group className="mb-3" controlId="formBasicEmail" onSubmit={handleSubmit}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
                             </Form.Group>
 
@@ -57,17 +57,9 @@ function BasicExample() {
                                         Submit
                                     </Button>
                                 </Col>
-                                <Col>
-                                    <div className='sign-up-link text-center'>
-                                        <Link to="/signup">Sign Up</Link>
-                                    </div>
-                                </Col>
                             </Row>
                         </Form>
                         <hr />
-                        <div className='text-center'>
-                            <GoogleButton className="g-btn" type="dark" />
-                        </div>
                     </div>
                 </Col>
             </Row>

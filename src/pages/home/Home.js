@@ -9,17 +9,19 @@ import { Units } from '../../components/chart/Unit';
 import DataTable from '../../components/chart/DataTable';
 import BarCharts from '../../components/chart/BarCharts'
 import '../../App.css';
+import { useUserAuth } from '../../Context/UserAuthContext';
 
 function Home() {
+    const { user } = useUserAuth();
     return (
         <>
-            <Row>
+            <Row className='full-height'>
                 <Col md="auto" className='side-wrp'>
                     <Sidebar />
                 </Col>
-                <Col>
+                <Col className='white-bg'>
                     <Navigation />
-                    <div class="greet-text">
+                    <div className="greet-text">
                         <h2>Hello, Kristian</h2>
                         <p>Maintenance Dashboard</p>
                     </div>

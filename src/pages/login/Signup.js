@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useUserAuth } from '../../Context/UserAuthContext';
 
 function Signup() {
@@ -10,11 +10,13 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const { signUp } = useUserAuth();
+    const history = useHistory();
     const handleSubmit = async (e) =>{
+        
         e.preventDefault();
         try{
             await signUp(email, password);
-            <Redirect to="/"></Redirect>
+            history.push("/");
 
         } catch (err){
             setError(err.message);

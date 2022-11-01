@@ -9,7 +9,7 @@ class Sidebar extends Component {
         return (
             <div>
                 <div className='logo-wrp'>
-                    <img src={logo} alt="Logo" />
+                   
                 </div>
                 <div className='side-nav'>
                     <Nav defaultActiveKey="/home" className="flex-column">

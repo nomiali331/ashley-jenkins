@@ -14,11 +14,11 @@ function Home() {
     }
     return (
         <>
-            <Row>
+            <Row className='full-height'>
                 <Col md="auto" className='side-wrp'>
                     <Sidebar />
                 </Col>
-                <Col>
+                <Col className='white-bg'>
                     <Navigation />
                     <Row>
                         <Col>

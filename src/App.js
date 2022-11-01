@@ -8,9 +8,9 @@ import UnitCreate from './pages/unit/UnitCreate'
 import UnitUpdate from './pages/unit/UnitUpdate'
 import Login from './pages/login/Login'
 import Signup from './pages/login/Signup'
-
 import List from './pages/list/List'
 import { UserAuthContextProvider } from './Context/UserAuthContext';
+
 function App() {
     const [unitId, setUnitId] = useState("");
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route component={List} path="/list" ></Route>
           <Route component={UnitCreate} path="/add" ></Route>
           <Route component={UnitUpdate} path="/update" ></Route>
-          <Route component={Home} path="/home" ></Route>          
+          <Route component={ Home } path="/home" ></Route>          
           <Route component={Signup} path="/signup" ></Route>
           <Route component={Login} path="/" ></Route>
         </Switch>  
