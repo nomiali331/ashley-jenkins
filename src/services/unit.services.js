@@ -3,6 +3,7 @@ import { collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc } from "
 
 const unitCollectionRef = collection(db, 'units');
 class UnitDataService{
+   
     addUnits = (newUnit) => {
         return addDoc(unitCollectionRef, newUnit);
     };
@@ -21,10 +22,17 @@ class UnitDataService{
         return getDocs(unitCollectionRef);
     }
 
+    getSelectedUnit = (unitNo) => {
+        const unitDoc = doc(db, "units", unitNo);
+        return getDoc(unitDoc);
+    }
+
     getUnit = (id) => {
         const unitDoc = doc(db, "units", id);
         return getDoc(unitDoc);
     }
+
+
 }
 
 export default new UnitDataService();

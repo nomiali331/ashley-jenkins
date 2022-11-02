@@ -14,8 +14,10 @@ class Sidebar extends Component {
                 <div className='side-nav'>
                     <Nav defaultActiveKey="/home" className="flex-column">
                         <Nav.Link href="/"><img src={dashIco} alt="Logo" />Dashboard</Nav.Link>
-                        <Nav.Link href="/list"><img src={dashIco} alt="Logo" />List Units</Nav.Link>
-                        <Nav.Link href="/add"><img src={dashIco} alt="Logo" />Add New Unit</Nav.Link>
+                        <Nav.Link href="/addunit"><img src={dashIco} alt="Logo" />Add New Unit</Nav.Link>
+                        <Nav.Link href="/unitslist"><img src={dashIco} alt="Logo" />List Units</Nav.Link>
+                        <Nav.Link href="/add"><img src={dashIco} alt="Logo" />Add New Appliance</Nav.Link>
+                        <Nav.Link href="/list"><img src={dashIco} alt="Logo" />List Appliances</Nav.Link>
                     </Nav>
                 </div>
             </div>

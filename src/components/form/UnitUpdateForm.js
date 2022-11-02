@@ -10,8 +10,13 @@ import TextField from '@mui/material/TextField';
 import { async } from '@firebase/util';
 import UnitDataService from "../../services/unit.services"
 import { useLocation } from 'react-router-dom';
+import unitService from '../../services/unit.service';
+import colorService from '../../services/color.service'
+import Moment from 'moment';
+import Modal from 'react-bootstrap/Modal';
 
 function UnitCreateForm({ id, setUnitId }) {
+    const setupdateDate = Moment().format('DD-MM-YYYY')
 
     const [modelNo, setModelNo] = useState("");
     const [serialNo, setSerialNo] = useState("");
@@ -40,10 +45,8 @@ function UnitCreateForm({ id, setUnitId }) {
         // console.log(file);
 
         var url = reader.readAsDataURL(file);
-        console.log(url)
         reader.onloadend = function (e) {
             setimgSrc(reader.result)
-            console.log("data-======>", reader.result)
         };
     }
     const [flag, setFlag] = useState(true);
@@ -64,8 +67,8 @@ function UnitCreateForm({ id, setUnitId }) {
             colorUnit,
             appliance,
             imgsrc,
+            setupdateDate,
         }
-        console.log(newUnit);
         try {
             if (state.state !== undefined && state.state !== "") { 
             await UnitDataService.updateUnit(state.state, newUnit);
@@ -108,11 +111,76 @@ function UnitCreateForm({ id, setUnitId }) {
         }
     }
     useEffect(() => {
-        console.log("hello", state.state)
         if (state.state !== undefined && state.state !== "") {
             editHandler();
         }
     }, [state.state]);
+
+    const [units, setUnits] = useState([]);
+    useEffect(() => {
+      getUnits();
+    }, [])
+    const getUnits = async () => {
+      const data = await unitService.getAllUnit();
+      setUnits(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    };
+    const [colors, setColors] = useState([]);
+  useEffect(() => {
+    getColor();
+  }, [])
+  const getColor = async () => {
+    const data = await colorService.getAllColor();
+    setColors(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  };
+  const [newColor, setNewColor] = useState("");
+  const handleColorSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    if (newColor === "") {
+      setMessage({ error: true, msg: "Please Insert Color" });
+      return;
+    }
+    const addNewColor = {
+      newColor,
+    }
+    try {
+      await colorService.addColor(addNewColor);
+      setMessage({ error: false, msg: "New Color added successfully!" });
+    } catch (err) {
+      setMessage({ error: true, msg: err.message });
+    }
+    setNewColor("");
+    getColor();
+
+  };
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleClose2 = () => setShow(false);
+  const handleShow2 = () => setShow(true);
+  const [newUnit, setNewUnit] = useState("");
+  const handleUnitSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    if (newUnit === "") {
+      setMessage({ error: true, msg: "All Fields are mandatory" });
+      return;
+    }
+    const addNewUnit = {
+      newUnit,
+    }
+    try {
+      await unitService.addUnit(addNewUnit);
+      setMessage({ error: false, msg: "New Unit added successfully!" });
+    } catch (err) {
+      setMessage({ error: true, msg: err.message });
+    }
+    setNewUnit("");
+    getUnits();
+
+  };
     return (
         <>
             {message?.msg && (
@@ -125,6 +193,70 @@ function UnitCreateForm({ id, setUnitId }) {
                 </Alert>
             )}
             <div className='create-new-form'>
+            <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add New Unit</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {message?.msg && (
+              <Alert
+                variant={message?.error ? 'danger' : 'success'}
+                dismissible
+                onClose={() => setMessage("")}
+              >
+                {message?.msg}
+              </Alert>
+            )}
+            <Form onSubmit={handleUnitSubmit} >
+              <Row>
+                <Col>
+                  <Form.Group className="mb-3" controlId="formBasicModel">
+                    <TextField fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Row>
+                <Col className='btn-align'>
+                  <Button variant="primary" type="submit">
+                    Save & Continue
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </Modal.Body>
+        </Modal>
+        <Modal show={show} onHide={handleClose2}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add New Color</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {message?.msg && (
+              <Alert
+                variant={message?.error ? 'danger' : 'success'}
+                dismissible
+                onClose={() => setMessage("")}
+              >
+                {message?.msg}
+              </Alert>
+            )}
+            <Form onSubmit={handleColorSubmit} >
+              <Row>
+                <Col>
+                  <Form.Group className="mb-3" controlId="formBasicModel">
+                    <TextField fullWidth label="Color" id="Color" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Row>
+                <Col className='btn-align'>
+                  <Button variant="primary" type="submit">
+                    Save & Continue
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </Modal.Body>
+        </Modal>
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col>
@@ -138,23 +270,14 @@ function UnitCreateForm({ id, setUnitId }) {
                     label="Age"
                     onChange={handleChange}
                   >
-                    <MenuItem value={101}>104</MenuItem>
-                    <MenuItem value={102}>102</MenuItem>
-                    <MenuItem value={103}>103</MenuItem>
-                    <MenuItem value={104}>104</MenuItem>
-                    <MenuItem value={121}>121</MenuItem>
-                    <MenuItem value={122}>122</MenuItem>
-                    <MenuItem value={123}>123</MenuItem>
-                    <MenuItem value={124}>124</MenuItem>
-                    <MenuItem value={201}>201</MenuItem>
-                    <MenuItem value={202}>202</MenuItem>
-                    <MenuItem value={203}>203</MenuItem>
-                    <MenuItem value={204}>204</MenuItem>
-                    <MenuItem value={221}>221</MenuItem>
-                    <MenuItem value={222}>222</MenuItem>
-                    <MenuItem value={223}>223</MenuItem>
-                    <MenuItem value={224}>224</MenuItem>
-                  </Select>
+                    {units.map((doc, index) => {
+                    return (
+                      <MenuItem value={doc.newUnit}>{doc.newUnit}</MenuItem>
+                    )
+                  })
+                }
+                  </Select> 
+                  <Button onClick={handleShow}> + </Button>
                 </FormControl>
               </Form.Group>
             </Col>
@@ -169,11 +292,14 @@ function UnitCreateForm({ id, setUnitId }) {
                     label="Color"
                     onChange={colorChange}
                   >
-                    <MenuItem value={'white'}>White</MenuItem>
-                    <MenuItem value={'black'}>Black</MenuItem>
-                    <MenuItem value={'almond'}>Almond</MenuItem>
-                    <MenuItem value={'StainlessSteel'}>Stainless Steel</MenuItem>
+                   {colors.map((doc, index) => {
+                    return (
+                      <MenuItem value={doc.newColor}>{doc.newColor}</MenuItem>
+                    )
+                  })
+                }
                   </Select>
+                  <Button onClick={handleShow}> + </Button>
                 </FormControl>
               </Form.Group>
             </Col>

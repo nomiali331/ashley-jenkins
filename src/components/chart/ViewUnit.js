@@ -3,22 +3,19 @@ import '../../App.css';
 import UnitDataService from "../../services/unit.services"
 import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 
 
-function Home( {getUnitId} ) {
+function Home(  ) {
+const { state } = useLocation();
   const [units, setUnits] = useState([]);
   useEffect(() => {
     getUnits();
+    console.log()
   }, [])
   const getUnits = async () => {
-    const data = await UnitDataService.getAllUnit();
-    setUnits(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-  };
-
-  const deleteHandler = async (id) => {
-    await UnitDataService.deleteUnit(id);
-    getUnits();
+    const data = await UnitDataService.getSelectedUnit(state.state);
+    console.log(data);
   };
 
   const history = useHistory();
@@ -28,10 +25,7 @@ function Home( {getUnitId} ) {
         <thead>
           <tr>
             <th>S.No</th>
-            <th>Date</th>
             <th>Unit No</th>
-            <th>Appliance Type</th>
-            <th>Update</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -40,28 +34,16 @@ function Home( {getUnitId} ) {
             return (
               <tr key={doc.id}>
                 <td>{index + 1}</td>
-                <td>{doc.setCurrentDate}</td>
-                <td>{doc.unitNo}</td>
-                <td>{doc.appliance}</td>
-                <td>{doc.setupdateDate ? doc.setupdateDate : '-'}</td>
+                <td>{doc.appli}</td>
                 <td>
                   <Button
                     variant='secondary'
                     className='edit'
-                    onClick={(e) => {getUnitId(doc.id)
-                      history.push('/update', { state:doc.id})
-                    }
-                  }
+                
                   >
-                    Edit
+                    View
                   </Button>
-                  <Button
-                    variant='danger'
-                    className='delete'
-                    onClick={(e) => deleteHandler(doc.id)}
-                  >
-                    Delete
-                  </Button>
+
                 </td>
               </tr>
             )

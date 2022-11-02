@@ -1,36 +1,34 @@
 import React, { useState } from 'react'
 import Navigation from '../../components/navbar/Navigation'
 import Sidebar from '../../components/sidebar/Sidebar'
-import UnitUpdateForm from '../../components/form/UnitUpdateForm';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../App.css';
+import DataTable from "../../components/chart/ListUnit";
 
-function UnitCreate() {
+function Home() {
     const [unitId, setUnitId] = useState("");
+    const getUnitIdHandler =(id) => {
+        setUnitId(id);
+    }
     return (
         <>
             <Row className='full-height'>
                 <Col md="auto" className='side-wrp'>
                     <Sidebar />
                 </Col>
-                <Col  className='white-bg'>
+                <Col className='white-bg'>
                     <Navigation />
-                    <div className="greet-text">
-                        <h2>Update Appliance</h2>
-                        <p>Update Unit</p>
-                    </div>
                     <Row>
                         <Col>
-                            <div className='charts '>
-                                <UnitUpdateForm id={ unitId } setUnitId={setUnitId}/>
-                            </div>
+                            <DataTable getUnitId={getUnitIdHandler}/>
+                
                         </Col>
-                    </Row>
-                </Col>
             </Row>
+        </Col>
+            </Row >
         </>
     );
 }
 
-export default UnitCreate
+export default Home

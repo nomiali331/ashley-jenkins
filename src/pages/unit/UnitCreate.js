@@ -17,8 +17,9 @@ function UnitCreate() {
                 <Col  className='white-bg'>
                     <Navigation />
                     <div className="greet-text">
-                        <h2>Add New Appliance To unit</h2>
+                        <h2>Add New Appliance</h2>
                         <p>Add New Unit</p>
+
                     </div>
                     <Row>
                         <Col className='col-8'>

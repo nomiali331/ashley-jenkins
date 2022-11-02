@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import Navigation from '../../components/navbar/Navigation'
 import Sidebar from '../../components/sidebar/Sidebar'
-import UnitUpdateForm from '../../components/form/UnitUpdateForm';
+import ListUnit from '../../components/chart/ViewUnit';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../App.css';
 
 function UnitCreate() {
-    const [unitId, setUnitId] = useState("");
+    const [unitNo, setunitNo] = useState("");
     return (
         <>
             <Row className='full-height'>
@@ -16,14 +16,10 @@ function UnitCreate() {
                 </Col>
                 <Col  className='white-bg'>
                     <Navigation />
-                    <div className="greet-text">
-                        <h2>Update Appliance</h2>
-                        <p>Update Unit</p>
-                    </div>
                     <Row>
                         <Col>
                             <div className='charts '>
-                                <UnitUpdateForm id={ unitId } setUnitId={setUnitId}/>
+                                <ListUnit id={ unitNo } setunitNo={setunitNo}/>
                             </div>
                         </Col>
                     </Row>

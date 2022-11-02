@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../../App.css';
-import UnitDataService from "../../services/unit.services"
+import UnitDataService from "../../services/unit.service"
 import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import {useHistory} from 'react-router-dom';
 
 
 function Home( {getUnitId} ) {
+
   const [units, setUnits] = useState([]);
   useEffect(() => {
     getUnits();
@@ -16,11 +17,6 @@ function Home( {getUnitId} ) {
     setUnits(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
   };
 
-  const deleteHandler = async (id) => {
-    await UnitDataService.deleteUnit(id);
-    getUnits();
-  };
-
   const history = useHistory();
   return (
     <>
@@ -28,10 +24,7 @@ function Home( {getUnitId} ) {
         <thead>
           <tr>
             <th>S.No</th>
-            <th>Date</th>
             <th>Unit No</th>
-            <th>Appliance Type</th>
-            <th>Update</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -40,28 +33,19 @@ function Home( {getUnitId} ) {
             return (
               <tr key={doc.id}>
                 <td>{index + 1}</td>
-                <td>{doc.setCurrentDate}</td>
-                <td>{doc.unitNo}</td>
-                <td>{doc.appliance}</td>
-                <td>{doc.setupdateDate ? doc.setupdateDate : '-'}</td>
+                <td>{doc.newUnit}</td>
                 <td>
                   <Button
                     variant='secondary'
                     className='edit'
                     onClick={(e) => {getUnitId(doc.id)
-                      history.push('/update', { state:doc.id})
+                      history.push('/viewunit', { state:doc.newUnit})
                     }
                   }
                   >
-                    Edit
+                    View
                   </Button>
-                  <Button
-                    variant='danger'
-                    className='delete'
-                    onClick={(e) => deleteHandler(doc.id)}
-                  >
-                    Delete
-                  </Button>
+
                 </td>
               </tr>
             )
