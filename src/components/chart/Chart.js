@@ -15,7 +15,7 @@ class Chart extends Component {
                     <p className='main-pera'>Wed, 25th Sep 2022 10.00 AM</p>
                 </div>
                 <div className='feature-circular'>
-                    <CircularProgressbar value={percentage} text={`${3400}`} />;
+                    <CircularProgressbar value={percentage} text={`${3400}`} />
                 </div>
                 <div className='text-center'>
                 <Link to="/add">Add Units</Link> 

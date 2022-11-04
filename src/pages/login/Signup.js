@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useUserAuth } from '../../Context/UserAuthContext';
 
 function Signup() {

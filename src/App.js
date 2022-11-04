@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
 import {  Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import './App.css';
 import Home from './pages/home/Home'
 import UnitSearch from './components/UnitSearch'
 import UnitCreate from './pages/unit/UnitCreate'
@@ -26,8 +26,7 @@ function App() {
           <Route component={List} path="/list" ></Route>
           <Route component={UnitCreate} path="/add" ></Route>
           <Route component={UnitUpdate} path="/update" ></Route>
-          <Route component={ Home } path="/home" ></Route>          
-          <Route component={Signup} path="/signup" ></Route>                    
+          <Route component={ Home } path="/home" ></Route>                       
           <Route component={AddNewUnit} path="/addunit" ></Route>    
           <Route component={Login} path="/" ></Route>
         </Switch>  

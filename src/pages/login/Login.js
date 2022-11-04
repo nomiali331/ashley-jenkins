@@ -25,45 +25,54 @@ function BasicExample() {
         }
     }
     return (
-        <Container>
-            <Row>
-                <Col></Col>
-                <Col>
-                    <div className='login-form  '>
-                        <img src={logo} alt="Logo" />
-                        <p>Welcome back! Please login to your account.</p>
-                        <Form onSubmit={handleSubmit}>
-                            {error && <Alert variant="danger">{error}</Alert>}
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
-                            </Form.Group>
+        <div className="loginbg">
+            <Container>
+                <Row>
+                    <Col></Col>
+                    <Col lg="5">
+                        <div className='login-form'>
+                            <img src={logo} alt="Logo" />
+                            <p>Welcome back! Please login to your account.</p>
+                            <Form onSubmit={handleSubmit}>
+                                {error && <Alert variant="danger">{error}</Alert>}
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
+                                </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-                            </Form.Group>
-                            <Row>
-                                <Col>
-                                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                        <Form.Check type="checkbox" label="Remember me" />
-                                    </Form.Group>
-                                </Col>
-                                <Col>
-                                    <a>Forgot password</a>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Button variant="primary" type="submit">
-                                        Submit
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </Form>
-                        <hr />
-                    </div>
-                </Col>
-            </Row>
-        </Container>
+                                <Form.Group className="mb-4" controlId="formBasicPassword">
+                                    <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                                </Form.Group>
+                                <Row>
+                                    <Col>
+                                        <Form.Group className="mb-5" controlId="formBasicCheckbox">
+                                            <Form.Check type="checkbox" label="Remember me" />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col className="text-lg-right">
+                                        <a href="#">Forgot password</a>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Button variant="primary" className="w-100" type="submit">
+                                            Login
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Form>
+                            <div className='orline'><p>or</p></div>
+                            <Button variant="primary" className="w-100" type="submit">
+                                Continue with Email
+                            </Button>
+                            <div className='linkend'>
+                                <a href="#">Term of use.</a>
+                                <a href="#">Privacy policy</a>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
 
     );
 }

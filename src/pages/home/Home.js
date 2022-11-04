@@ -15,29 +15,29 @@ function Home() {
     const { user } = useUserAuth();
     return (
         <>
+            <div className='side-wrp'>
+                <Sidebar />
+            </div>
+            <Navigation />
             <Row className='full-height'>
-                <Col md="auto" className='side-wrp'>
-                    <Sidebar />
-                </Col>
                 <Col className='white-bg'>
-                    <Navigation />
                     <div className="greet-text">
                         <h2>Hello, Kristian</h2>
                         <p>Maintenance Dashboard</p>
                     </div>
                     <Row>
                         <Col>
-                            <div className='charts '>
+                            <div className='charts'>
                                 <Chart />
                             </div>
                         </Col>
                         <Col>
-                            <div className='charts '>
+                            <div className='charts'>
                                 <Progress />
                             </div>
                         </Col>
                         <Col>
-                            <div className='charts '>
+                            <div className='charts'>
                                 <Units />
                             </div>
                         </Col>

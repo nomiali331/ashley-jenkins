@@ -29,7 +29,7 @@ const Home = () => {
   };
     return (
       <div className="custom-navigation">
-        <Container>
+        <Container fluid>
           <Row>
             <Col className="d-flex align-items-center">
               <div className='nav-toogle'>
@@ -37,7 +37,7 @@ const Home = () => {
               </div>
             </Col>
 
-            <Col className="d-flex align-items-center"><Form className="d-flex">
+            <Col className="d-flex align-items-center justify-content-end"><Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search here..."
