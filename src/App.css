@@ -210,14 +210,14 @@ a {
 
 .chart-wrap a {
   background: #00BF787B;
-  padding: 10px 40px;
-  margin: auto;
+  border: 1px solid #00BF78;
+  padding: 8px 40px;
   border-radius: 30px;
   font-size: 16px;
   color: #fff;
   text-decoration: none;
   display: inline-block;
-  margin-bottom: 20px;
+  margin: 20px 0 30px;
 }
 
 .chart-wrap h5 {
@@ -228,6 +228,7 @@ a {
 .chart-wrap p {
   font-size: 13px;
   font-weight: 600;
+  margin-bottom: 0;
 }
 
 .chart-inner-content .main-forth {
@@ -412,15 +413,6 @@ img.upload_photo_main {
   color: #878787;
 }
 
-input#formBasicCheckbox {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: inline-block;
-  padding: 0;
-  margin: 5px 0 0 0 !important;
-}
-
 label.form-check-label {
   padding-left: 10px;
   color: #878787;
@@ -489,7 +481,7 @@ label.form-check-label {
   border-radius: 50%;
   display: inline-block;
   padding: 0;
-  margin: 4px 0 0 0 !important;
+  margin: 2px 0 0 0 !important;
 }
 
 
