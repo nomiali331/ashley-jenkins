@@ -13,12 +13,14 @@ function Home() {
     }
     return (
         <>
+            <div className='side-wrp'>
+                <Sidebar />
+            </div>
+            <Navigation />
             <Row className='full-height'>
-                <Col md="auto" className='side-wrp'>
-                    <Sidebar />
-                </Col>
+              
                 <Col className='white-bg'>
-                    <Navigation />
+                    
                     <Row>
                         <Col>
                             <DataTable getUnitId={getUnitIdHandler}/>

@@ -20,40 +20,42 @@ function Home( {getUnitId} ) {
   const history = useHistory();
   return (
     <>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>Unit No</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {units.map((doc, index) => {
-            return (
-              <tr key={doc.id}>
-                <td>{index + 1}</td>
-                <td>{doc.newUnit}</td>
-                <td>
-                  <Button
-                    variant='secondary'
-                    className='edit'
-                    onClick={(e) => {getUnitId(doc.id)
-                      history.push('/viewunit', { state:doc.newUnit})
-                    }
-                  }
-                  >
-                    View
-                  </Button>
+        <div className='table-wrap'>
+              <h3 className='main-third'>Unit List</h3>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Unit No</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {units.map((doc, index) => {
+                  return (
+                    <tr key={doc.id}>
+                      <td>{index + 1}</td>
+                      <td>{doc.newUnit}</td>
+                      <td>
+                        <Button
+                          variant=''
+                          className='edit'
+                          onClick={(e) => {getUnitId(doc.id)
+                            history.push('/viewunit', { state:doc.newUnit})
+                          }
+                        }
+                        >
+                          View
+                        </Button>
 
-                </td>
-              </tr>
-            )
-          })
-          }
-        </tbody>
-      </Table>
-
+                      </td>
+                    </tr>
+                  )
+                })
+                }
+              </tbody>
+            </Table>
+        </div>
     </>
   );
 }

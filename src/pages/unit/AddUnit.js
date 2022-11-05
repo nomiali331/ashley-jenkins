@@ -9,12 +9,14 @@ import '../../App.css';
 function AddUnits() {
     return (
         <>
+            <div className='side-wrp'>
+                <Sidebar />
+            </div>
+            <Navigation />
             <Row className='full-height'>
-                <Col md="auto" className='side-wrp'>
-                    <Sidebar />
-                </Col>
+                
                 <Col  className='white-bg'>
-                    <Navigation />
+                    
                     <div className="greet-text">
                         <h2>Add New Unit</h2>
                         <p>Update Unit</p>

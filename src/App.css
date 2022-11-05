@@ -23,13 +23,32 @@ a {
 .navbar a:hover {
   color: #ddd
 }
-
-.custom-navigation {
-  background: #1e85f10f;
-  margin-left: 380px;
-  padding: 6px 30px;
+.btn {
+  padding: 10px 45px;
+  font-size: 18px;
+  border-radius: 30px;
 }
-
+.btn-success {
+  background: #00BF787B;
+  border: 1px solid #00BF78;
+}
+.custom-navigation {
+  background: #f2f8fe;
+  padding: 8px 30px;
+  position: fixed;
+  top: 0;
+  left: 380px;
+  right: 0;
+  z-index: 1;
+}
+.form-control,.form-select {
+  border-color: #C1C1C1;
+  padding: 14px 20px;
+  border-radius: 50px;
+  color: #434343;
+  font-weight: 500;
+  background-color: #F6F6F6;
+}
 .custom-navigation form {
   background: #fff;
   border-radius: 30px;
@@ -51,7 +70,12 @@ a {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.side-wrp .logo-wrp h2 {
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 42px;
+  font-weight: 400;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -103,7 +127,9 @@ a {
 }
 
 .side-wrp .logo-wrp {
-  margin-top: 30px;
+  margin-top: 0;
+    padding: 13px 0;
+    background-color: rgb(34 28 28 / 10%);
 }
 
 .side-wrp a {
@@ -120,15 +146,17 @@ a {
 .side-nav a img {
   width: 20px;
   margin-right: 12px;
+  vertical-align: sub;
 }
 
 .side-nav {
   padding-left: 150px !important;
-  margin-top: 65px;
+  margin-top: 60px;
 }
 .full-height {
   margin: 0 0 0 380px;
   padding: 40px;
+  margin-top: 76px;
 }
 
 .custom-navigation .nav-toogle img {
@@ -178,10 +206,50 @@ a {
   margin-bottom: 0;
 }
 
+.table-wrap {
+  text-align: left;
+  border: 1px solid #70707047;
+  padding: 15px 0;
+  border-radius: 30px;
+  margin-top: 30px;
+}
+.table-wrap .main-third {
+  padding: 10px 20px 20px;
+}
+
+table tr {
+    border-color: #70707057;
+}
+
+table tr th {
+    color: #434343;
+    font-weight: 500;
+    text-align: center;
+}
+table tr td,.table-striped>tbody>tr td:nth-of-type(odd),.table-striped>tbody>tr td:nth-of-type(even) {
+  border-color: #70707057;
+  background: transparent;
+  box-shadow: none;
+  color: #7D7D7D;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+table.table-striped>tbody>tr td:nth-child(1) {
+  color: #434343;
+  font-size: 16px;
+}
+table tr td button.btn {
+  color: #7A86FA;
+  padding: 0 2px;
+}
+.table>:not(caption)>*>* {
+    box-shadow: none;
+}
 .chart-wrap {
   text-align: left;
   border: 1px solid #70707047;
-  padding: 15px 20px;
+  padding: 15px;
   border-radius: 30px;
 }
 
@@ -196,28 +264,9 @@ a {
   border-radius: 20px;
 }
 
-.chart-wrap a {
-  background: #00BF787B;
-  padding: 10px 40px;
-  margin: auto;
-  border-radius: 30px;
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 40px;
-}
 
 .chart-wrap a {
-  background: #00BF787B;
-  border: 1px solid #00BF78;
-  padding: 8px 40px;
-  border-radius: 30px;
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  margin: 20px 0 30px;
+  margin: 10px 0 30px;
 }
 
 .chart-wrap h5 {
@@ -327,58 +376,72 @@ a {
 }
 
 .create-new-form input[type="file"] {
-  height: 200px;
-  width: 300px;
+  height: 240px;
+  width: 400px;
   background: #F6F6F6;
   font-size: 0;
   border: 0;
   outline: none;
   box-shadow: none;
   position: relative;
-  border: 1px solid #000;
+  border: 1px solid #C1C1C1;
   border-radius: 20px;
 }
 
 .create-new-form input[type="file"]:before {
-  content: 'Add Image';
+  content: 'Add More Image';
   font-size: 16px;
-  color: £;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
   text-align: center;
   vertical-align: middle;
-  top: 100px;
+  color: #C1C1C1;
+  top: 50%;
+  font-weight: 500;
+  transform: translate(0px, -20%);
 }
 
 .create-new-form input[type="file"]:after {
   content: '+';
-  background: #0d6efd;
+  background: #1E85F1;
   left: 0;
   right: 0;
-  top: 60px;
+  top: 35%;
+  padding: 8px 0;
+  transform: translate(0px, -50%);
   margin: auto;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   color: #fff;
-  font-size: 40px;
+  font-size: 34px;
   line-height: 25px;
   border-radius: 50%;
   text-align: center;
 }
+.custom-navigation .form-control {
+  background: #fff;
+}
 
+.custom-navigation .form-control:focus {
+  box-shadow: none;
+}
+
+.custom-navigation .search-btn {
+  padding: 0 20px;
+}
 img.upload_photo_main {
-  height: 200px;
-  width: 300px;
+  height: 240px;
+  width: 400px;
   background: #F6F6F6;
   font-size: 0;
   border: 0;
   outline: none;
   box-shadow: none;
   position: relative;
-  border: 1px solid #000;
+  border: 1px solid #C1C1C1;
   border-radius: 20px;
   display: inline-block;
   vertical-align: middle;
@@ -422,12 +485,7 @@ label.form-check-label {
   text-align: right;
 }
 
-.login-form button.btn.btn-primary {
-  padding: 10px 45px;
-  font-size: 18px;
-  border-radius: 30px;
-  border: 1px solid #fff;
-}
+
 
 .login-form .sign-up-link a {
   text-decoration: none;

@@ -12,6 +12,7 @@ import '../../App.css';
 import { useUserAuth } from '../../Context/UserAuthContext';
 
 function Home() {
+    
     const { user } = useUserAuth();
     return (
         <>
@@ -43,11 +44,14 @@ function Home() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col lg="8">
                             <DataTable />
                         </Col>
-                        <Col>
-                            <BarCharts />
+                        <Col lg="4">
+                        <div className='table-wrap'>
+                                <h3 className='main-third'>Daily Records</h3>
+                                <BarCharts />
+                            </div>
                         </Col>
                     </Row>
                 </Col>

@@ -18,7 +18,7 @@ class Chart extends Component {
                     <CircularProgressbar value={percentage} text={`${3400}`} />
                 </div>
                 <div className='text-center'>
-                <Link to="/add">Add Units</Link> 
+                <Link to="/add" class="btn btn-success">Add Units</Link> 
                 </div>
                 <Row className='text-center'>
                     <Col>

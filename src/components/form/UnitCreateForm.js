@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Alert, Col, Row } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Table from 'react-bootstrap/Table';
 import { async } from '@firebase/util';
 import UnitDataService from "../../services/unit.services"
@@ -185,7 +186,7 @@ function UnitCreateForm({ id, setUnitId }) {
               <Row>
                 <Col>
                   <Form.Group className="mb-3" controlId="formBasicModel">
-                    <TextField fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
+                    <Form.Control type='text' placeholder='Unit No' fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
                   </Form.Group>
                 </Col>
               </Row>
@@ -217,7 +218,7 @@ function UnitCreateForm({ id, setUnitId }) {
               <Row>
                 <Col>
                   <Form.Group className="mb-3" controlId="formBasicModel">
-                    <TextField fullWidth label="Color" id="Color" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
+                    <Form.Control type='text' placeholder='Color' fullWidth label="Color" id="Color" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
                   </Form.Group>
                 </Col>
               </Row>
@@ -236,8 +237,9 @@ function UnitCreateForm({ id, setUnitId }) {
             <Col>
               <Form.Group className="mb-3" controlId="formBasicUnit">
                 <FormControl fullWidth>
-                  <InputLabel id="unitNoLabel">Unit No.</InputLabel>
-                  <Select
+                <InputGroup className="">
+                  {/* <InputLabel id="unitNoLabel">Unit No.</InputLabel> */}
+                  <Form.Select
                     labelId="unitNoLabel"
                     id="unitNoSelect"
                     value={unitNo}
@@ -246,20 +248,22 @@ function UnitCreateForm({ id, setUnitId }) {
                   >
                     {units.map((doc, index) => {
                       return (
-                        <MenuItem value={doc.newUnit}>{doc.newUnit}</MenuItem>
+                        <option value={doc.newUnit}>{doc.newUnit}</option>
                       )
                     })
                     }
-                  </Select>
+                  </Form.Select>
                   <Button onClick={handleShow}> + </Button>
+                  </InputGroup>
                 </FormControl>
               </Form.Group>
             </Col>
             <Col>
-              <Form.Group className="mb-3" controlId="formBasicColor">
+              <Form.Group className="mb-4" controlId="formBasicColor">
                 <FormControl fullWidth>
-                  <InputLabel id="colorLabel">Color</InputLabel>
-                  <Select
+                <InputGroup className="">
+                  {/* <InputLabel id="colorLabel">Color</InputLabel> */}
+                  <Form.Select
                     labelId="colorLabel"
                     id="colorSelect"
                     value={colorUnit}
@@ -267,13 +271,14 @@ function UnitCreateForm({ id, setUnitId }) {
                     onChange={colorChange}
                   >{colors.map((doc, index) => {
                     return (
-                      <MenuItem value={doc.newColor}>{doc.newColor}</MenuItem>
+                      <option value={doc.newColor}>{doc.newColor}</option>
                     )
                   })
                   }  
 
-                  </Select>
+                  </Form.Select>
                   <Button onClick={handleShow2}> + </Button>
+                  </InputGroup>
                 </FormControl>
               </Form.Group>
             </Col>
@@ -281,64 +286,64 @@ function UnitCreateForm({ id, setUnitId }) {
 
           <Row>
             <Col>
-              <Form.Group className="mb-3" controlId="formBasictype">
+              <Form.Group className="mb-4" controlId="formBasictype">
                 <FormControl fullWidth>
-                  <InputLabel id="applianceType">Appliance Type</InputLabel>
-                  <Select
+                  {/* <InputLabel id="applianceType">Appliance Type</InputLabel> */}
+                  <Form.Select
                     labelId="applianceType"
                     id="applianceTypeSelect"
                     value={appliance}
                     label="Appliance Type"
                     onChange={applianceChange}
                   >
-                    <MenuItem value={'Refrigerator'}>Refrigerator</MenuItem>
-                    <MenuItem value={'Stove'}>Stove</MenuItem>
-                    <MenuItem value={'Dishwasher'}>Dishwasher</MenuItem>
-                    <MenuItem value={'Rangehood'}>Rangehood</MenuItem>
-                    <MenuItem value={'Microwave'}>Microwave</MenuItem>
-                    <MenuItem value={'GarbageDisposal'}>Garbage Disposal</MenuItem>
-                    <MenuItem value={'Washer'}>Washer</MenuItem>
-                    <MenuItem value={'Dryer'}>Dryer</MenuItem>
-                    <MenuItem value={'WaterHeater'}>Water Heater</MenuItem>
-                    <MenuItem value={'Condenser'}>Condenser</MenuItem>
-                    <MenuItem value={'AirHandler'}>Air Handler</MenuItem>
-                  </Select>
+                    <option value={'Refrigerator'}>Refrigerator</option>
+                    <option value={'Stove'}>Stove</option>
+                    <option value={'Dishwasher'}>Dishwasher</option>
+                    <option value={'Rangehood'}>Rangehood</option>
+                    <option value={'Microwave'}>Microwave</option>
+                    <option value={'GarbageDisposal'}>Garbage Disposal</option>
+                    <option value={'Washer'}>Washer</option>
+                    <option value={'Dryer'}>Dryer</option>
+                    <option value={'WaterHeater'}>Water Heater</option>
+                    <option value={'Condenser'}>Condenser</option>
+                    <option value={'AirHandler'}>Air Handler</option>
+                  </Form.Select>
                 </FormControl>
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Form.Group className="mb-3" controlId="formBasicModel">
-                <TextField fullWidth label="Model No." id="model-no" value={modelNo} onChange={(e) => setModelNo(e.target.value)} />
+              <Form.Group className="mb-4" controlId="formBasicModel">
+                <Form.Control type="number" placeholder='Model No.' fullWidth label="Model No." id="model-no" value={modelNo} onChange={(e) => setModelNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Form.Group className="mb-3" controlId="formBasicSerial">
-                <TextField fullWidth label="Serial No." id="serial-no" value={serialNo} onChange={(e) => setSerialNo(e.target.value)} />
+              <Form.Group className="mb-4" controlId="formBasicSerial">
+                <Form.Control type="number" placeholder='Serial No.' fullWidth label="Serial No." id="serial-no" value={serialNo} onChange={(e) => setSerialNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Form.Group className="mb-3" controlId="formBasicpo">
-                <TextField fullWidth label="PO No." id="po-no" value={poNo} onChange={(e) => setPoNo(e.target.value)} />
+              <Form.Group className="mb-4" controlId="formBasicpo">
+                <Form.Control type="number" placeholder='PO No.' fullWidth label="PO No." id="po-no" value={poNo} onChange={(e) => setPoNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
-            <Col className='image-field'>
+            <Col className='image-field mt-5'>
               <h4>Add Images</h4>
               <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
-              <Form.Group className="mb-3 image-file" controlId="formBasicimage">
+              <Form.Group className="mb-4 image-file" controlId="formBasicimage">
                 <input type="file" onChange={(e) => { handleInputFileChange(e.target.files[0]) }} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
-            <Col className='btn-align'>
+            <Col className='btn-align mt-3'>
               <Button variant="primary" type="submit">
                 Save & Continue
               </Button>

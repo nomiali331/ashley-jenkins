@@ -52,9 +52,10 @@ function AddUnitFrom({ id, setUnitId }) {
       <div className='create-new-form'>
           <Form onSubmit={handleUnitSubmit} >
               <Row>
-                <Col>
+                <Col> 
+      
                   <Form.Group className="mb-3" controlId="formBasicModel">
-                    <TextField fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
+                    <Form.Control fullWidth label="Unit No" placeholder='Unit No' id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
                   </Form.Group>
                 </Col>
               </Row>
