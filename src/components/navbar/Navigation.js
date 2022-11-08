@@ -13,7 +13,7 @@ import notify from '../../assets/notify.png'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useHistory } from 'react-router-dom';
 import { useUserAuth } from '../../Context/UserAuthContext';
-
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Home = () => {
   const { logOut, user } = useUserAuth();
@@ -27,17 +27,21 @@ const Home = () => {
       console.log(error.message);
     }
   };
+  const handleClick = () => {
+    // 👇️ toggle class on the body element
+        document.body.classList.toggle('hide-sidebar');
+    };
     return (
       <div className="custom-navigation">
         <Container fluid>
           <Row>
-            <Col className="d-flex align-items-center">
-              <div className='nav-toogle'>
+            <Col xs="3" className="d-flex align-items-center">
+              <div className='nav-toogle ' onClick={handleClick}>
                 <img src={Toggle} alt="Logo" />
               </div>
             </Col>
 
-            <Col className="d-flex align-items-center justify-content-end"><Form className="d-flex">
+            <Col xs="9" className="d-flex align-items-center justify-content-end"><Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search here..."
@@ -47,11 +51,24 @@ const Home = () => {
               <Button className='search-btn' variant="outline-success"><img src={search} alt="Logo" /></Button>
             </Form>
               <Nav>
-                <Nav.Link href="#features"><img src={notify} alt="Logo" /></Nav.Link>
-                <Nav.Link href="#pricing"> <img src={Admin} alt="Logo" /></Nav.Link>
-                <NavDropdown title="Admin" id="basic-nav-dropdown">
-                  <NavDropdown.Item onClick={ handleLogout } >Logout</NavDropdown.Item>
-                </NavDropdown>
+                <Dropdown>
+                  <Dropdown.Toggle variant="" id="dropdown-basic"><img src={notify} alt="Logo" /></Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>abc</Dropdown.Item>
+                    <Dropdown.Item>abc</Dropdown.Item>
+                    <Dropdown.Item>abc</Dropdown.Item>
+                    <Dropdown.Item>abc</Dropdown.Item>
+                    <Dropdown.Item>abc</Dropdown.Item>
+                    <Dropdown.Item>abc</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                  <Dropdown.Toggle variant="" id="dropdown-basic"><img src={Admin} alt="Logo" />Admin</Dropdown.Toggle>
+                  <Dropdown.Menu align="end">
+                    <Dropdown.Item onClick={ handleLogout }>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              
               </Nav></Col>
           </Row>
         </Container>

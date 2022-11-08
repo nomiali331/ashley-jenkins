@@ -14,6 +14,7 @@ import unitService from '../../services/unit.service';
 import colorService from '../../services/color.service'
 import Moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function UnitCreateForm({ id, setUnitId }) {
     const setupdateDate = Moment().format('DD-MM-YYYY')
@@ -211,7 +212,7 @@ function UnitCreateForm({ id, setUnitId }) {
               <Row>
                 <Col>
                   <Form.Group className="mb-3" controlId="formBasicModel">
-                    <TextField fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
+                    <Form.Control type="text" placeholder='Unit No' fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
                   </Form.Group>
                 </Col>
               </Row>
@@ -243,7 +244,7 @@ function UnitCreateForm({ id, setUnitId }) {
               <Row>
                 <Col>
                   <Form.Group className="mb-3" controlId="formBasicModel">
-                    <TextField fullWidth label="Color" id="Color" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
+                    <Form.Control type="text" placeholder='Color' fullWidth label="Color" id="Color" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
                   </Form.Group>
                 </Col>
               </Row>
@@ -261,45 +262,49 @@ function UnitCreateForm({ id, setUnitId }) {
           <Row>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicUnit">
-                <FormControl fullWidth>
-                  <InputLabel id="unitNoLabel">Unit No.</InputLabel>
-                  <Select
-                    labelId="unitNoLabel"
-                    id="unitNoSelect"
-                    value={unitNo}
-                    label="Age"
-                    onChange={handleChange}
-                  >
-                    {units.map((doc, index) => {
-                    return (
-                      <MenuItem value={doc.newUnit}>{doc.newUnit}</MenuItem>
-                    )
-                  })
-                }
-                  </Select> 
-                  <Button onClick={handleShow}> + </Button>
+                  <FormControl fullWidth>
+                  <InputGroup className="">
+                      {/* <InputLabel id="unitNoLabel">Unit No.</InputLabel> */}
+                      <Form.Select
+                        labelId="unitNoLabel"
+                        id="unitNoSelect"
+                        value={unitNo}
+                        label="Age"
+                        onChange={handleChange}
+                      >
+                        {units.map((doc, index) => {
+                        return (
+                          <option value={doc.newUnit}>{doc.newUnit}</option>
+                        )
+                      })
+                    }
+                      </Form.Select> 
+                      <Button onClick={handleShow}> + </Button>
+                  </InputGroup>
                 </FormControl>
               </Form.Group>
             </Col>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicColor">
                 <FormControl fullWidth>
-                  <InputLabel id="colorLabel">Color</InputLabel>
-                  <Select
-                    labelId="colorLabel"
-                    id="colorSelect"
-                    value={colorUnit}
-                    label="Color"
-                    onChange={colorChange}
-                  >
-                   {colors.map((doc, index) => {
-                    return (
-                      <MenuItem value={doc.newColor}>{doc.newColor}</MenuItem>
-                    )
-                  })
-                }
-                  </Select>
-                  <Button onClick={handleShow}> + </Button>
+                  {/* <InputLabel id="colorLabel">Color</InputLabel> */}
+                  <InputGroup className="">
+                    <Form.Select
+                      labelId="colorLabel"
+                      id="colorSelect"
+                      value={colorUnit}
+                      label="Color"
+                      onChange={colorChange}
+                    >
+                    {colors.map((doc, index) => {
+                      return (
+                        <option value={doc.newColor}>{doc.newColor}</option>
+                      )
+                    })
+                  }
+                    </Form.Select>
+                    <Button onClick={handleShow}> + </Button>
+                  </InputGroup>
                 </FormControl>
               </Form.Group>
             </Col>
@@ -309,26 +314,26 @@ function UnitCreateForm({ id, setUnitId }) {
             <Col>
               <Form.Group className="mb-3" controlId="formBasictype">
                 <FormControl fullWidth>
-                  <InputLabel id="applianceType">Appliance Type</InputLabel>
-                  <Select
+                  {/* <InputLabel id="applianceType">Appliance Type</InputLabel> */}
+                  <Form.Select
                     labelId="applianceType"
                     id="applianceTypeSelect"
                     value={appliance}
                     label="Appliance Type"
                     onChange={applianceChange}
                   >
-                    <MenuItem value={'Refrigerator'}>Refrigerator</MenuItem>
-                    <MenuItem value={'Stove'}>Stove</MenuItem>
-                    <MenuItem value={'Dishwasher'}>Dishwasher</MenuItem>
-                    <MenuItem value={'Rangehood'}>Rangehood</MenuItem>
-                    <MenuItem value={'Microwave'}>Microwave</MenuItem>
-                    <MenuItem value={'GarbageDisposal'}>Garbage Disposal</MenuItem>
-                    <MenuItem value={'Washer'}>Washer</MenuItem>
-                    <MenuItem value={'Dryer'}>Dryer</MenuItem>
-                    <MenuItem value={'WaterHeater'}>Water Heater</MenuItem>
-                    <MenuItem value={'Condenser'}>Condenser</MenuItem>
-                    <MenuItem value={'AirHandler'}>Air Handler</MenuItem>
-                  </Select>
+                    <option value={'Refrigerator'}>Refrigerator</option>
+                    <option value={'Stove'}>Stove</option>
+                    <option value={'Dishwasher'}>Dishwasher</option>
+                    <option value={'Rangehood'}>Rangehood</option>
+                    <option value={'Microwave'}>Microwave</option>
+                    <option value={'GarbageDisposal'}>Garbage Disposal</option>
+                    <option value={'Washer'}>Washer</option>
+                    <option value={'Dryer'}>Dryer</option>
+                    <option value={'WaterHeater'}>Water Heater</option>
+                    <option value={'Condenser'}>Condenser</option>
+                    <option value={'AirHandler'}>Air Handler</option>
+                  </Form.Select>
                 </FormControl>
               </Form.Group>
             </Col>
@@ -336,21 +341,21 @@ function UnitCreateForm({ id, setUnitId }) {
           <Row>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicModel">
-                <TextField fullWidth label="Model No." id="model-no" value={modelNo} onChange={(e) => setModelNo(e.target.value)} />
+                <Form.Control type="text" placeholder='Model No.' fullWidth label="Model No." id="model-no" value={modelNo} onChange={(e) => setModelNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicSerial">
-                <TextField fullWidth label="Serial No." id="serial-no" value={serialNo} onChange={(e) => setSerialNo(e.target.value)} />
+                <Form.Control type="text" placeholder='Serial No.' fullWidth label="Serial No." id="serial-no" value={serialNo} onChange={(e) => setSerialNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicpo">
-                <TextField fullWidth label="PO No." id="po-no" value={poNo} onChange={(e) => setPoNo(e.target.value)} />
+                <Form.Control type="text" placeholder='PO No.' fullWidth label="PO No." id="po-no" value={poNo} onChange={(e) => setPoNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>

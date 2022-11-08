@@ -11,8 +11,13 @@ import BarCharts from '../../components/chart/BarCharts'
 import '../../App.css';
 import { useUserAuth } from '../../Context/UserAuthContext';
 
+
+
+
 function Home() {
-    
+   
+   
+
     const { user } = useUserAuth();
     return (
         <>
@@ -27,17 +32,17 @@ function Home() {
                         <p>Maintenance Dashboard</p>
                     </div>
                     <Row>
-                        <Col>
+                        <Col xl="4" lg="6" className='mt-2'>
                             <div className='charts'>
                                 <Chart />
                             </div>
                         </Col>
-                        <Col>
+                        <Col xl="4" lg="6" className='mt-2'>
                             <div className='charts'>
                                 <Progress />
                             </div>
                         </Col>
-                        <Col>
+                        <Col xl="4" className='mt-2'>
                             <div className='charts'>
                                 <Units />
                             </div>
