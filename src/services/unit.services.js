@@ -1,5 +1,5 @@
 import { db } from "../firebase-config";
-import { collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, where, query } from "firebase/firestore";
 
 const unitCollectionRef = collection(db, 'units');
 class UnitDataService{
@@ -19,12 +19,13 @@ class UnitDataService{
     };
 
     getAllUnit = () => {
+        
         return getDocs(unitCollectionRef);
     }
 
     getSelectedUnit = (unitNo) => {
-        const unitDoc = doc(db, "units", unitNo);
-        return getDoc(unitDoc);
+        const selectedUnits = query(collection(db, "units"), where("unitNo", "==", unitNo)); //this needs to be worked on
+        return getDocs(selectedUnits);
     }
 
     getUnit = (id) => {
