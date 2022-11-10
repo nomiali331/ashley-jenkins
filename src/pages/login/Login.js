@@ -6,7 +6,6 @@ import GoogleButton from 'react-google-button'
 import { Link } from 'react-router-dom';
 import { useUserAuth } from '../../Context/UserAuthContext';
 import { useHistory } from 'react-router-dom';
-import logo from '../../assets/logo-blue.png';
 
 function BasicExample() {
     const history = useHistory()
@@ -31,7 +30,10 @@ function BasicExample() {
                     <Col></Col>
                     <Col lg="5">
                         <div className='login-form'>
-                            <img src={logo} alt="Logo" />
+                            <div className='logo-wrp'>
+                                {/* <img src={logo} alt="Logo" /> */}
+                                <h2>ASHLEY</h2>
+                            </div>
                             <p>Welcome back! Please login to your account.</p>
                             <Form onSubmit={handleSubmit}>
                                 {error && <Alert variant="danger">{error}</Alert>}

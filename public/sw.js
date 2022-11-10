@@ -5,18 +5,10 @@ this.addEventListener("install",(event)=>{
         caches.open(cacheDate).then((cache)=>{
             cache.addAll([
                 "/static/js/bundle.js",
+                "/manifest.json",
                 "/index.html",
                 "/"
             ])
-        })
-    )
-})
-this.addEventListener("fetch", (event)=>{
-    event.respondWith(
-        caches.match(event.request).then((result)=>{
-            if(result){
-                return result
-            }
         })
     )
 })

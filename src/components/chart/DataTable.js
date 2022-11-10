@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../../App.css';
 import UnitDataService from "../../services/unit.services"
-import { Button } from 'react-bootstrap';
+import UnitDataServ from "../../services/unit.service"
+import { Button, Form } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
-function Home( {getUnitId} ) {
+function Home({ getUnitId }) {
   const [units, setUnits] = useState([]);
   useEffect(() => {
     getUnits();
@@ -14,6 +15,20 @@ function Home( {getUnitId} ) {
   const getUnits = async () => {
     const data = await UnitDataService.getAllUnit();
     setUnits(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  };
+  const [filterUnits, setFilterUnits] = useState([]);
+  useEffect(() => {
+    getFilterUnits();
+  }, [])
+
+  const getFilterUnits = async () => {
+    const dataFilter = await UnitDataServ.getAllUnit();
+    setFilterUnits(dataFilter.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  };
+  const [unitNo, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
   };
 
   const deleteHandler = async (id) => {
@@ -24,8 +39,9 @@ function Home( {getUnitId} ) {
   const history = useHistory();
   return (
     <>
-    <div className='table-wrap'>
-        <h3 className='main-third'>Unit List</h3>
+      <div className='table-wrap'>
+        <h3 className='main-third'>Appliances List</h3>
+
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -50,10 +66,11 @@ function Home( {getUnitId} ) {
                     <Button
                       variant=''
                       className='edit'
-                      onClick={(e) => {getUnitId(doc.id)
-                        history.push('/update', { state:doc.id})
+                      onClick={(e) => {
+                        getUnitId(doc.id)
+                        history.push('/update', { state: doc.id })
                       }
-                    }
+                      }
                     >
                       Edit
                     </Button>
@@ -73,7 +90,7 @@ function Home( {getUnitId} ) {
           </tbody>
         </Table>
         <div className='text-center'>
-            <a href="#" className='text-dark'>View All</a>
+          <a href="#" className='text-dark'>View All</a>
         </div>
       </div>
     </>
