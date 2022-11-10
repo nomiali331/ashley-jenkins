@@ -12,3 +12,5 @@ this.addEventListener("install",(event)=>{
         })
     )
 })
+
+self.addEventListener('fetch',() => console.log("fetch"));
