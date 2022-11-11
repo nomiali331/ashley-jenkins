@@ -360,16 +360,20 @@ function UnitCreateForm({ id, setUnitId }) {
             </Col>
           </Row>
           <Row>
-            <Col className='image-field'>
-              <h4>Add Images</h4>
-              <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
-              <Form.Group className="mb-3 image-file" controlId="formBasicimage">
+              <h4 className='text-left mt-4'>Add Images</h4>
+            <Col md="4">
+              <div className='image-field mt-2'>
+                <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
+              </div>
+            </Col>
+            <Col md="4">
+              <Form.Group className="mt-2 image-file" controlId="formBasicimage">
                 <input type="file" onChange={(e) => { handleInputFileChange(e.target.files[0]) }} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
-            <Col className='btn-align'>
+            <Col className='btn-align mt-4'>
               <Button variant="primary" type="submit">
                 Save & Continue
               </Button>

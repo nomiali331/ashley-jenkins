@@ -391,8 +391,8 @@ table tr td button.btn {
 }
 
 .create-new-form input[type="file"] {
-  height: 240px;
-  width: 400px;
+  height: 250px;
+  width: 100%;
   background: #F6F6F6;
   font-size: 0;
   border: 0;
@@ -401,6 +401,7 @@ table tr td button.btn {
   position: relative;
   border: 1px solid #C1C1C1;
   border-radius: 20px;
+  vertical-align: top;
 }
 
 .create-new-form input[type="file"]:before {
@@ -413,7 +414,7 @@ table tr td button.btn {
   text-align: center;
   vertical-align: middle;
   color: #C1C1C1;
-  top: 50%;
+  top: 56%;
   font-weight: 500;
   transform: translate(0px, -20%);
 }
@@ -423,7 +424,7 @@ table tr td button.btn {
   background: #1E85F1;
   left: 0;
   right: 0;
-  top: 35%;
+  top: 40%;
   padding: 8px 0;
   transform: translate(0px, -50%);
   margin: auto;
@@ -438,6 +439,7 @@ table tr td button.btn {
 }
 .custom-navigation .form-control {
   background: #fff;
+  width: 220px;
 }
 
 .custom-navigation .form-control:focus {
@@ -451,8 +453,8 @@ table tr td button.btn {
   background: transparent !important;
 }
 img.upload_photo_main {
-  height: 240px;
-  width: 400px;
+  height: 250px;
+  width: 100%;
   background: #F6F6F6;
   font-size: 0;
   border: 0;
@@ -666,13 +668,14 @@ label.form-check-label {
   color: #43425D;
 }
 
-@media (max-width: 991px) {
-  .greet-text {
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
-}
+
 @media (max-width: 1399px) {
+  img.upload_photo_main {
+    height: 200px;
+  }
+  .create-new-form input[type="file"] {
+    height: 200px;
+  }
   .side-wrp {
       width: 280px;
   }
@@ -686,5 +689,117 @@ label.form-check-label {
   .custom-navigation {
     left: 280px;
     padding: 12px 30px;
+  }
+}
+@media (max-width: 991px) {
+  body.hide-sidebar {
+    overflow: hidden;
+}
+  .hide-sidebar:before {
+    content: '';
+    background-color: #0000008a;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+  .hide-sidebar .side-wrp {
+      left: 0;
+  }
+  .greet-text {
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .side-wrp {
+      left: -100%;
+      top: 60px;
+      z-index: 9;
+  }
+  .custom-navigation {
+      left: 0;
+      z-index: 9;
+  }
+  .full-height {
+      margin-left: 0;
+  }
+}
+@media (max-width: 767px) {
+  .input-group .btn {
+      padding: 6px 14px;
+  }
+  .side-wrp .logo-wrp h2 {
+    font-size: 32px;
+}
+  .side-wrp a {
+    margin: 8px 0;
+    padding: 12px;
+  }
+  .form-control, .form-select {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .table-responsive table thead tr th {
+    white-space: nowrap;
+}
+table tr td, .table-striped>tbody>tr td:nth-of-type(odd), .table-striped>tbody>tr td:nth-of-type(even) {
+  font-size: 12px;
+}
+table.table-striped>tbody>tr td:nth-child(1) {
+  font-size: 14px;
+}
+.progress-bar-sec.chart-wrap .progress-bar-row h6 {
+  font-size: 12px;
+}
+.main-forth {
+  font-size: 16px;
+}
+.chart-wrap p {
+  font-size: 12px;
+}
+  .btn {
+      padding: 8px 30px;
+      font-size: 16px;
+  }
+  .list-item ul li {
+
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .list-item ul li:after {
+    bottom: -16px;
+  }
+    .chart-wrap a {
+      margin: 8px 0 14px;
+  }
+    .main-third {
+      font-size: 16px;
+  }
+  .greet-text h2 {
+    font-size: 24px;
+  }
+  .greet-text p {
+    font-size: 14px;
+  }
+  .greet-text {
+    margin-bottom: 10px;
+}
+  .full-height {
+    margin-top: 60px;
+    padding: 10px;
+}
+  .custom-navigation {
+      padding: 10px;
+  }
+  .custom-navigation form {
+      display: none !important;
+  }
+  .custom-navigation .nav .dropdown .btn {
+      font-size: 0;
+  }
+
+  .custom-navigation .nav .dropdown .btn:after {
+      font-size: 14px;
   }
 }

@@ -24,7 +24,7 @@ function UnitCreate() {
 
                     </div>
                     <Row>
-                        <Col className='col-8'>
+                        <Col lg="8">
                             <div className='charts '>
                                 <UnitCreateForm id={ unitId } setUnitId={setUnitId}/>
                             </div>

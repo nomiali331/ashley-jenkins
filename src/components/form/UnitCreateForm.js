@@ -185,7 +185,7 @@ function UnitCreateForm({ id, setUnitId }) {
             <Form onSubmit={handleUnitSubmit} >
               <Row>
                 <Col>
-                  <Form.Group className="mb-3" controlId="formBasicModel">
+                  <Form.Group className="mb-lg-3 mb-2" controlId="formBasicModel">
                     <Form.Control type='text' placeholder='Unit No' fullWidth label="Unit No" id="unit-no" value={newUnit} onChange={(e) => setNewUnit(e.target.value)} />
                   </Form.Group>
                 </Col>
@@ -217,7 +217,7 @@ function UnitCreateForm({ id, setUnitId }) {
             <Form onSubmit={handleColorSubmit} >
               <Row>
                 <Col>
-                  <Form.Group className="mb-3" controlId="formBasicModel">
+                  <Form.Group className="mb-lg-3 mb-2" controlId="formBasicModel">
                     <Form.Control type='text' placeholder='Color' fullWidth label="Color" id="Color" value={newColor} onChange={(e) => setNewColor(e.target.value)} />
                   </Form.Group>
                 </Col>
@@ -235,7 +235,7 @@ function UnitCreateForm({ id, setUnitId }) {
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col>
-              <Form.Group className="mb-3" controlId="formBasicUnit">
+              <Form.Group className="mb-lg-3 mb-2" controlId="formBasicUnit">
                 <FormControl fullWidth>
                 <InputGroup className="">
                   {/* <InputLabel id="unitNoLabel">Unit No.</InputLabel> */}
@@ -259,7 +259,7 @@ function UnitCreateForm({ id, setUnitId }) {
               </Form.Group>
             </Col>
             <Col>
-              <Form.Group className="mb-4" controlId="formBasicColor">
+              <Form.Group className="mb-lg-4 mb-2" controlId="formBasicColor">
                 <FormControl fullWidth>
                 <InputGroup className="">
                   {/* <InputLabel id="colorLabel">Color</InputLabel> */}
@@ -286,7 +286,7 @@ function UnitCreateForm({ id, setUnitId }) {
 
           <Row>
             <Col>
-              <Form.Group className="mb-4" controlId="formBasictype">
+              <Form.Group className="mb-lg-4 mb-2" controlId="formBasictype">
                 <FormControl fullWidth>
                   {/* <InputLabel id="applianceType">Appliance Type</InputLabel> */}
                   <Form.Select
@@ -314,33 +314,37 @@ function UnitCreateForm({ id, setUnitId }) {
           </Row>
           <Row>
             <Col>
-              <Form.Group className="mb-4" controlId="formBasicModel">
+              <Form.Group className="mb-lg-4 mb-2" controlId="formBasicModel">
                 <Form.Control type="number" placeholder='Model No.' fullWidth label="Model No." id="model-no" value={modelNo} onChange={(e) => setModelNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Form.Group className="mb-4" controlId="formBasicSerial">
+              <Form.Group className="mb-lg-4 mb-2" controlId="formBasicSerial">
                 <Form.Control type="number" placeholder='Serial No.' fullWidth label="Serial No." id="serial-no" value={serialNo} onChange={(e) => setSerialNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Form.Group className="mb-4" controlId="formBasicpo">
+              <Form.Group className="mb-lg-4 mb-2" controlId="formBasicpo">
                 <Form.Control type="number" placeholder='PO No.' fullWidth label="PO No." id="po-no" value={poNo} onChange={(e) => setPoNo(e.target.value)} />
               </Form.Group>
             </Col>
           </Row>
           <Row>
-            <Col className='image-field mt-5'>
-              <h4>Add Images</h4>
-              <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
-              <Form.Group className="mb-4 image-file" controlId="formBasicimage">
-                <input type="file" onChange={(e) => { handleInputFileChange(e.target.files[0]) }} />
-              </Form.Group>
-            </Col>
+              <h4 className='text-left mt-4'>Add Images</h4>
+              <Col md="6">
+                <div className='image-field mt-2'>
+                  <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
+                </div>
+              </Col>
+              <Col md="6">
+                <Form.Group className="image-file mt-2" controlId="formBasicimage">
+                  <input type="file" onChange={(e) => { handleInputFileChange(e.target.files[0]) }} />
+                </Form.Group>
+              </Col>
           </Row>
           <Row>
             <Col className='btn-align mt-3'>

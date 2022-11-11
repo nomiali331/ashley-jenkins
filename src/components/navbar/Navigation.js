@@ -35,13 +35,13 @@ const Home = () => {
       <div className="custom-navigation">
         <Container fluid>
           <Row>
-            <Col xs="3" className="d-flex align-items-center">
+            <Col xs="2" className="d-flex align-items-center">
               <div className='nav-toogle ' onClick={handleClick}>
                 <img src={Toggle} alt="Logo" />
               </div>
             </Col>
 
-            <Col xs="9" className="d-flex align-items-center justify-content-end"><Form className="d-flex">
+            <Col xs="10" className="d-flex align-items-center justify-content-end"><Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search here..."
