@@ -3,24 +3,30 @@
   "name": "Unit Management",
   "icons": [
     {
+      "src": "maskable.png",
+      "sizes": "301x301",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
       "src": "favicon.ico",
-      "sizes": "64x64",
+      "sizes": "48x48",
       "type": "image/x-icon"
     },
     {
-      "src": "logo32.ico",
+      "src": "logo32.png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "logo24.ico",
+      "src": "logo24.png",
       "sizes": "24x24",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "logo16.ico",
+      "src": "logo16.png",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "logo192.png",
