@@ -3,7 +3,8 @@ import '../../App.css';
 import UnitDataService from "../../services/unit.service"
 import { Button } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 function Home( {getUnitId} ) {
@@ -20,6 +21,7 @@ function Home( {getUnitId} ) {
   const history = useHistory();
   return (
     <>
+      <Link className='back-btn' to="/home"><ArrowBackIcon /> Back to Home</Link>
         <div className='table-wrap'>
               <h3 className='main-third'>Unit List</h3>
             <Table striped bordered hover>

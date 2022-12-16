@@ -38,7 +38,9 @@ function UnitCreateForm({ id, setUnitId }) {
   };
 
   const [imgsrc, setimgSrc] = React.useState('');
+
   const handleInputFileChange = (event) => {
+
     //setimage(event)
     var file = event
 
@@ -124,7 +126,7 @@ function UnitCreateForm({ id, setUnitId }) {
     getUnits();
 
   };
-  
+
   const [newColor, setNewColor] = useState("");
   const handleColorSubmit = async (e) => {
     e.preventDefault();
@@ -155,7 +157,7 @@ function UnitCreateForm({ id, setUnitId }) {
     const data = await colorService.getAllColor();
     setColors(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
   };
- 
+
   return (
     <>
       {message?.msg && (
@@ -237,23 +239,23 @@ function UnitCreateForm({ id, setUnitId }) {
             <Col>
               <Form.Group className="mb-lg-3 mb-2" controlId="formBasicUnit">
                 <FormControl fullWidth>
-                <InputGroup className="">
-                  {/* <InputLabel id="unitNoLabel">Unit No.</InputLabel> */}
-                  <Form.Select
-                    labelId="unitNoLabel"
-                    id="unitNoSelect"
-                    value={unitNo}
-                    label="Age"
-                    onChange={handleChange}
-                  >
-                    {units.map((doc, index) => {
-                      return (
-                        <option value={doc.newUnit}>{doc.newUnit}</option>
-                      )
-                    })
-                    }
-                  </Form.Select>
-                  <Button onClick={handleShow}> + </Button>
+                  <InputGroup className="">
+                    {/* <InputLabel id="unitNoLabel">Unit No.</InputLabel> */}
+                    <Form.Select
+                      labelId="unitNoLabel"
+                      id="unitNoSelect"
+                      value={unitNo}
+                      label="Age"
+                      onChange={handleChange}
+                    >
+                      {units.map((doc, index) => {
+                        return (
+                          <option value={doc.newUnit}>{doc.newUnit}</option>
+                        )
+                      })
+                      }
+                    </Form.Select>
+                    <Button onClick={handleShow}> + </Button>
                   </InputGroup>
                 </FormControl>
               </Form.Group>
@@ -261,23 +263,23 @@ function UnitCreateForm({ id, setUnitId }) {
             <Col>
               <Form.Group className="mb-lg-4 mb-2" controlId="formBasicColor">
                 <FormControl fullWidth>
-                <InputGroup className="">
-                  {/* <InputLabel id="colorLabel">Color</InputLabel> */}
-                  <Form.Select
-                    labelId="colorLabel"
-                    id="colorSelect"
-                    value={colorUnit}
-                    label="Color"
-                    onChange={colorChange}
-                  >{colors.map((doc, index) => {
-                    return (
-                      <option value={doc.newColor}>{doc.newColor}</option>
-                    )
-                  })
-                  }  
+                  <InputGroup className="">
+                    {/* <InputLabel id="colorLabel">Color</InputLabel> */}
+                    <Form.Select
+                      labelId="colorLabel"
+                      id="colorSelect"
+                      value={colorUnit}
+                      label="Color"
+                      onChange={colorChange}
+                    >{colors.map((doc, index) => {
+                      return (
+                        <option value={doc.newColor}>{doc.newColor}</option>
+                      )
+                    })
+                      }
 
-                  </Form.Select>
-                  <Button onClick={handleShow2}> + </Button>
+                    </Form.Select>
+                    <Button onClick={handleShow2}> + </Button>
                   </InputGroup>
                 </FormControl>
               </Form.Group>
@@ -334,17 +336,17 @@ function UnitCreateForm({ id, setUnitId }) {
             </Col>
           </Row>
           <Row>
-              <h4 className='text-left mt-4'>Add Images</h4>
-              <Col md="6">
-                <div className='image-field mt-2'>
-                  <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
-                </div>
-              </Col>
-              <Col md="6">
-                <Form.Group className="image-file mt-2" controlId="formBasicimage">
-                  <input type="file" onChange={(e) => { handleInputFileChange(e.target.files[0]) }} />
-                </Form.Group>
-              </Col>
+            <h4 className='text-left mt-4'>Add Images</h4>
+            <Col md="6">
+              <div className='image-field mt-2'>
+                <img src={imgsrc ? imgsrc : ''} className="upload_photo_main" />
+              </div>
+            </Col>
+            <Col md="6">
+              <Form.Group className="image-file mt-2" controlId="formBasicimage">
+                <input type="file" onChange={(e) => { handleInputFileChange(e.target.files[0]) }} />
+              </Form.Group>
+            </Col>
           </Row>
           <Row>
             <Col className='btn-align mt-3'>

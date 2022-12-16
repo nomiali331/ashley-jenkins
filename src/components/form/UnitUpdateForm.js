@@ -156,9 +156,10 @@ function UnitCreateForm({ id, setUnitId }) {
 
   };
   const [show, setShow] = useState(false);
+  const [shows, setShows] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleClose2 = () => setShow(false);
+  const handleClose2 = () => setShows(false);
   const handleShow2 = () => setShow(true);
   const [newUnit, setNewUnit] = useState("");
   const handleUnitSubmit = async (e) => {
@@ -226,7 +227,7 @@ function UnitCreateForm({ id, setUnitId }) {
             </Form>
           </Modal.Body>
         </Modal>
-        <Modal show={show} onHide={handleClose2}>
+        <Modal show={shows} onHide={handleClose2}>
           <Modal.Header closeButton>
             <Modal.Title>Add New Color</Modal.Title>
           </Modal.Header>
@@ -279,7 +280,7 @@ function UnitCreateForm({ id, setUnitId }) {
                       })
                     }
                       </Form.Select> 
-                      <Button onClick={handleShow}> + </Button>
+                      <Button onClick={handleShow2}> + </Button>
                   </InputGroup>
                 </FormControl>
               </Form.Group>

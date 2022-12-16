@@ -802,4 +802,18 @@ table.table-striped>tbody>tr td:nth-child(1) {
   .custom-navigation .nav .dropdown .btn:after {
       font-size: 14px;
   }
+  .loginbg:before{
+    display: none;
+  }
+}
+a.back-btn {
+  text-align: left;
+  display:inline-block;
+  width: 100%;
+}
+.home-appliance-list .back-btn{
+  display:none;
+}
+.white-bg.list-page .text-center {
+  display:none;
 }

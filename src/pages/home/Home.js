@@ -49,7 +49,7 @@ function Home() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg="8">
+                        <Col lg="8" className='home-appliance-list'>
                             <DataTable />
                         </Col>
                         <Col lg="4">

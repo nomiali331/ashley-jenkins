@@ -5,6 +5,8 @@ import UnitCreateForm from '../../components/form/UnitCreateForm';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../App.css';
+import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function UnitCreate() {
     const [unitId, setUnitId] = useState("");
@@ -17,6 +19,7 @@ function UnitCreate() {
             <Row className='full-height'>
                 
                 <Col  className='white-bg'>
+                <Link className='back-btn' to="/list"><ArrowBackIcon /> Back to list </Link>
                    
                     <div className="greet-text">
                         <h2>Add New Appliance</h2>

@@ -20,7 +20,7 @@ function Home() {
             <Navigation />
             <Row className='full-height'>
                 
-                <Col className='white-bg'>
+                <Col className='white-bg list-page'>
                    
                     <Row>
                         <Col>

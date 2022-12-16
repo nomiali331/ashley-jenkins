@@ -5,6 +5,8 @@ import ListUnit from '../../components/chart/ViewUnit';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../App.css';
+import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function UnitCreate() {
     const [unitNo, setunitNo] = useState("");
@@ -16,6 +18,7 @@ function UnitCreate() {
             <Navigation />
             <Row className='full-height'>
                 <Col  className='white-bg'>
+                <Link className='back-btn' to="/unitslist"><ArrowBackIcon /> Back to list </Link>
                     <Row>
                         <Col>
                             <div className='charts '>
